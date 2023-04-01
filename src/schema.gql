@@ -13,11 +13,12 @@ type Document {
   text: String!
   title: String!
   updatedAt: DateTime!
+  user: User!
   userId: Float!
 }
 
 type Query {
-  documentsByUser(userId: Float!): [Document!]!
+  documents(userId: Float!): [Document!]!
   user(id: Float!): User!
 }
 

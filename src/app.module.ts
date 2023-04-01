@@ -4,8 +4,8 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 
-import { PrismaModule } from './prisma/prisma.module';
-import { UserModule } from './user/user.module';
+import { PrismaModule } from "./prisma";
+import { UserModule } from "./user";
 import { DocumentModule } from './document/document.module';
 
 @Module({
