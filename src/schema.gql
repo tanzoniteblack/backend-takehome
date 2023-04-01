@@ -13,7 +13,6 @@ type Document {
   text: String!
   title: String!
   updatedAt: DateTime!
-  user: User!
   userId: Float!
 }
 
@@ -23,6 +22,7 @@ type Query {
 }
 
 type User {
+  documents: [Document!]!
   email: String!
   id: Float!
   name: String!

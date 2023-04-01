@@ -11,13 +11,13 @@ import { DocumentModule } from './document/document.module';
 @Module({
   imports: [
     PrismaModule,
+    DocumentModule,
     UserModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       sortSchema: true,
     }),
-    DocumentModule,
   ],
 })
 export class AppModule {}
