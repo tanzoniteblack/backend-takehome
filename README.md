@@ -111,7 +111,8 @@ query documentQuery {
 In order to create the new documents, I updated `schema.prisma` with the appropriate columns and references.
 I also created the corresponding nest modules/services/models to go with. The nestjs community seems to lean
 towards using plural names for resources, but since the provided `user` resource was already singular, I went
-with `document` to keep the style the same.
+with `document` to keep the style the same. The prisma seed file has been updated to generate some documents
+for users.
 
 Never having worked with nestjs before, I found the resolver/service approach it takes to be pretty single and 
 straight forward and the dependency injection to "just work" for simple cases. I briefly looked at adding a
