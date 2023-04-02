@@ -16,6 +16,16 @@ type Document {
   userId: Float!
 }
 
+input DocumentInput {
+  text: String!
+  title: String!
+  userId: Float!
+}
+
+type Mutation {
+  saveDocument(documentData: DocumentInput!): Document!
+}
+
 type Query {
   documents(userId: Float!): [Document!]!
   user(id: Float!): User!

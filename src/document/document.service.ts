@@ -1,5 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from "../prisma";
+import type { DocumentInput } from "./models/document.input";
+import type { Document } from "./models/document.model";
 
 @Injectable()
 export class DocumentService {
@@ -11,5 +13,15 @@ export class DocumentService {
         userId: id
       }
     });
+  }
+
+  saveDocument(documentData: DocumentInput): Promise<Document> {
+    return this.prismaService.document.create({
+      data: {
+        title: documentData.title,
+        text: documentData.text,
+        userId: documentData.userId
+      }
+    })
   }
 }
