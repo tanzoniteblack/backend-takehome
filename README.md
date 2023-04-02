@@ -10,7 +10,11 @@ The program can be executed locally with:
  # Using ci for this example to prevent the resolved packages changing from what I tested with.
  # npm install would also work, but wouldn't guarantee minor versions of dependencies would not have updated
 npm ci
-npm run start
+npx prisma db push
+npx prisma db seed
+npx prisma generate
+npm run build
+npm run start:prod
 ```
 
 ## Docker
@@ -66,7 +70,7 @@ mutation insertDocumentTwo {
     }
 }
 
-mutation insertDocumentTwo {
+mutation insertDocumentThree {
     saveDocument(
         documentData: {
             text: "We can insert data for multiple users"
@@ -94,7 +98,7 @@ query userQuery {
 }
 
 query documentQuery {
-    documents(userId: 2) {
+    documents(userId: 1) {
         title
         text
         userId
