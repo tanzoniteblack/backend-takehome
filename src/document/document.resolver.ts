@@ -1,7 +1,8 @@
-import { Args, Mutation, Query, Resolver } from "@nestjs/graphql";
+import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
+
 import { DocumentService } from './document.service';
-import { Document } from './models/document.model'
 import { DocumentInput } from './models/document.input';
+import { Document } from './models/document.model';
 
 @Resolver(() => Document)
 export class DocumentResolver {
@@ -13,7 +14,9 @@ export class DocumentResolver {
   }
 
   @Mutation(() => Document)
-  saveDocument(@Args('documentData') documentData: DocumentInput): Promise<Document> {
+  saveDocument(
+    @Args('documentData') documentData: DocumentInput,
+  ): Promise<Document> {
     return this.documentService.saveDocument(documentData);
   }
 }

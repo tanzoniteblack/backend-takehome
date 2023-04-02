@@ -1,7 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from "../prisma";
-import type { DocumentInput } from "./models/document.input";
-import type { Document } from "./models/document.model";
+
+import { PrismaService } from '../prisma';
+
+import type { DocumentInput } from './models/document.input';
+import type { Document } from './models/document.model';
 
 @Injectable()
 export class DocumentService {
@@ -10,8 +12,8 @@ export class DocumentService {
   findByUserId(id: number) {
     return this.prismaService.document.findMany({
       where: {
-        userId: id
-      }
+        userId: id,
+      },
     });
   }
 
@@ -20,8 +22,8 @@ export class DocumentService {
       data: {
         title: documentData.title,
         text: documentData.text,
-        userId: documentData.userId
-      }
-    })
+        userId: documentData.userId,
+      },
+    });
   }
 }

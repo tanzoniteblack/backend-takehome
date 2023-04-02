@@ -1,11 +1,13 @@
 import { Module } from '@nestjs/common';
-import { DocumentService } from './document.service';
+
+import { PrismaModule } from '../prisma';
+
 import { DocumentResolver } from './document.resolver';
-import { PrismaModule } from "../prisma";
+import { DocumentService } from './document.service';
 
 @Module({
   imports: [PrismaModule],
   providers: [DocumentResolver, DocumentService],
-  exports: [DocumentResolver]
+  exports: [DocumentResolver],
 })
 export class DocumentModule {}

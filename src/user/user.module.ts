@@ -2,10 +2,11 @@ import { Module } from '@nestjs/common';
 
 import { PrismaModule } from 'src/prisma';
 
+import { DocumentModule } from '../document/document.module';
+import { DocumentService } from '../document/document.service';
+
 import { UserResolver } from './user.resolver';
 import { UserService } from './user.service';
-import { DocumentModule } from "../document/document.module";
-import { DocumentService } from "../document/document.service";
 
 @Module({
   imports: [PrismaModule, DocumentModule],
