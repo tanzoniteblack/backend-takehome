@@ -106,21 +106,19 @@ query documentQuery {
 }
 ```
 
-# Implementation notes
+# Notes
 
 In order to create the new documents, I updated `schema.prisma` with the appropriate columns and references.
-I also created the corresponding nest modules/services/models to go with. The nestjs community seems to lean
-towards using plural names for resources, but since the provided `user` resource was already singular, I went
-with `document` to keep the style the same. The prisma seed file has been updated to generate some documents
-for users.
+I also created the corresponding nest modules/services/models to go with. The prisma seed file has been updated
+to generate some documents for users.
 
-Never having worked with nestjs before, I found the resolver/service approach it takes to be pretty single and 
+Never having worked with nestjs before, I found the resolver/service approach it takes to be pretty simple and 
 straight forward and the dependency injection to "just work" for simple cases. I briefly looked at adding a
 "user" field to the document graphql response type, but decided dealing with the circular references wasn't worth
 it. I would probably take the approach of not implementing it in production until we had a need for it, but thankfully
-nestjs _does_ provide a way to handle circular references if necessary.
+nestjs does provide a way to handle circular references if necessary.
 
-As a personal note, `user` already uses an autoincrementing numeric primary key. My personal experience have lead me
+On a personal note, `user` already uses an autoincrementing numeric primary key. My personal experience have lead me
 to prefer UUID id's instead. I didn't go with it for the documents table to keep the style the same as what already exists,
 but I've seen many a data analyst join tables incorrectly and have it appear to work due to rows with the same numeric
 ID just happen to exist. With the unique nature of UUID's, the joins don't return data if the joins are done incorrectly
